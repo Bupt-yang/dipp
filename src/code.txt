@@ -1,0 +1,142 @@
+if (typeof web3 !== 'undefined') {
+    this.web3Provider = web3.currentProvider;
+    this.web3 = new Web3(this.web3Provider);
+} else {
+    this.web3Provider = new Web3.providers.HttpProvider("http://localhost:7545");
+    this.web3 = new Web3(this.web3Provider);
+}
+
+var maps = new Map();
+maps.set(0,'待审核');
+maps.set(1,'拒绝');
+maps.set(2,'活跃');
+maps.set(3,'终止');
+maps.set(4,'结束');
+this.num = 0;
+console.log(this.totalCampaigns);
+var txHashes = ["0xe38941cd95dc83c6bbdd0b2ef6bd90976c928bbd043dbf2c5ffe03301159078a",
+"0x58b0e7d76eec9498966876e3be2b0dfa4cf4025215d5065b2c4acda1336fafb7"];
+var blockHashes = ["0xa55c894fddd446391a2b6c3c36290b7ab42bd22365ab47c693ff31236f6ecbdd",
+"0x909cde5ea55571df3e2e500dc53d3ed5e21f8a7f617bab9f323b7fef51dc0f4a"];
+ for(let i=0;i<this.totalCampaigns;i++){
+     var res =this.donationInstance.campaigns(i).then(
+         r => {
+             var b = {};
+             b = r;
+             b.txHash=txHashes[i];
+             b.blockHash=blockHashes[i];
+             this.projectList.push(b);
+             console.log( this.projectList[i]);
+             this.projectList[i].times = this.timeConvert(this.projectList[i].deadline);
+             var n = Number(this.projectList[i].status);
+             this.projectList[i].status = maps.get(n);
+            // console.log(maps.get(0));
+         }
+     );
+ }
+
+ this.$Modal.info(config)
+ <Modal v-model="modal1" title="项目详细信息">
+   <p>项目名称：{{row.name}}</p>
+   <p>项目筹款目标：{{row.targetAmount}}元</p>
+   <p>项目截止时间：{{row.times}}</p>
+   <p>项目收款人地址：{{row.recipient}}</p>
+   <p>项目已筹款项：{{row.raisedAmount}}元</p>
+   <p>项目捐赠人数：{{row.donatorAccount}}人</p>
+   <p>项目进展：{{row.progresses}}</p>
+    <p>项目状态：{{row.status}}</p>
+</Modal>
+image_url:require("../../src/assets/images/login.jpg"),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="">
+    <div class="header"  style="">
+        <img src="../../src/assets/images/header.jpg" style="">
+    </div>
+    <div class="login">
+        <div >
+            <img :src="image_url" class="img" alt="登录图片">
+        </div>
+        <div class="from-wrap">
+            <Divider><h2>登录</h2></Divider>
+            <Form ref="formInline" :model="formInline" :rules="ruleInline" >
+                <FormItem prop="user">
+                    <Input type="text" v-model="formInline.user" placeholder="请输入手机号或邮箱" size="large">
+                        <Icon size="26" type="ios-person-outline" slot="prepend"></Icon>
+                    </Input>
+                </FormItem>
+                <FormItem prop="password">
+                    <Input type="password" v-model="formInline.password" placeholder="请输入密码" size="large">
+                        <Icon size="26" type="ios-lock-outline" slot="prepend"></Icon>
+                    </Input>
+                </FormItem>
+                <FormItem>
+                    <div class="">
+                         <Checkbox v-model="remember_password" style="margin-right:192px">记住密码</Checkbox>
+                         <a href="#">忘记密码？</a>
+                    </div>
+                </FormItem>
+                <FormItem>
+                    <Button type="primary" @click="handleSubmit('formInline') " style="width:344px">
+                        <span style="font-size:18px">登录</span>
+                    </Button>
+                </FormItem>
+                <FormItem>
+                    <div style="text-align:center">
+                        <span>没有账号？</span>
+                        <a href="#">立即注册</a>
+                    </div>
+                </FormItem>
+            </Form>
+        </div>
+    </div>
+    <div class="footer">
+        <div >北京邮电大学网络技术研究院</div>
+        <div>CopyRight © 2020 Beijing University of Posts and Telecommunications All Rights Reserved.</div>
+    </div>
+style="margin-right:192px"
+
+<Form ref="form1" :model="form1" :rules="rules1" >
+    <div>
+        <FormItem prop="password">
+            <Input type="password" password v-model="form.password" placeholder="请输入密码" size="large">
+                <Icon size="26" type="ios-lock-outline" slot="prepend"></Icon>
+            </Input>
+        </FormItem>
+        <FormItem prop="passwordAgain">
+            <Input type="password" password v-model="form.passwordAgain" placeholder="请再次输入密码" size="large">
+                <Icon size="26" type="ios-lock" slot="prepend"></Icon>
+            </Input>
+        </FormItem>
+    </div>
+</Form>
+position: fixed;
+left: 50%;
+margin-left: 460px;
+top: 50%;
+margin-top: -200px;
+width: 400px;
+height: 420px;
+border-radius: 10px;
+background-color: #fff;
+padding: 20px 30px;
+
+<MenuItem name="4">
+    <Icon type="md-hand" size="20"/>
+    <span>我要求助</span>
+</MenuItem>
