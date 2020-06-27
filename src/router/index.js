@@ -32,7 +32,6 @@ Vue.use(VueRouter)
     path: '/protocol',
     name: 'Protocol',
     component: () => import('../views/Protocol.vue'),
-    meta:{requireAuth:true}
 },
 ]
 
