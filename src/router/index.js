@@ -21,7 +21,7 @@ Vue.use(VueRouter)
     // this generates a separate chunk (home.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import('../views/Home.vue'),
-    meta:{requireAuth:true}
+    //meta:{requireAuth:true}
 },
 {
     path: '/retrievePassword',
