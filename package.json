@@ -20,7 +20,7 @@
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-unit-jest": "~4.4.0",
     "@vue/cli-plugin-vuex": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-service": "~5.0.9",
     "@vue/test-utils": "^1.0.3",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
